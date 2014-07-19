@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
- * Created by tappoz on 19/07/14.
+ * This class is used to process the whole file
  */
 @Singleton
 public class SessionProcessingService {
