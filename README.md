@@ -3,15 +3,38 @@ CalculatorIoData
 
 This Java project runs a list of operations e.g. `add`, `divide`, `subtract`, `multiply`
 according to a input file with instructions.
+The aim is to calculate a result from a set of instructions.
+The last instruction should be `apply` and a number (e.g., `apply 3`).
+The calculator is then initialised with that number and the previous instructions are applied to that number.
+
+Basically the idea here is to skill all the file and get only the last line to initialise the process.
+The I/O operations should be efficient, i.e. no loading of the whole file in memory.
+
+The **Apache Commons** frameworks help in this scenario.
+**Google Guice** is used for the dependency injection pattern.
+
+
+Example
+-------
+
+An input file example (containing 3 lines) might be:
+
+    add 2
+    multiply 3
+    apply 3
+
 
 Compilation
 -----------
+
 Use Maven to compile it. Run the following command from the root folder of this project:
 
     $ mvn clean package
 
+
 Running the project
 -------------------
+
 To run the project from a Linux command line, use the following command:
 
     $ java -jar target/calculatorIo.jar src/main/resources/example3.txt
