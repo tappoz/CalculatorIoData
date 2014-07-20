@@ -10,9 +10,9 @@ The calculator is then initialised with that number and the previous instruction
 Basically the idea here is to skip all the lines in the file but the last to initialise the process.
 The I/O operations should be efficient, i.e. no loading of the whole file in memory before the computation.
 
-- The **Apache Commons** frameworks help in this I/O scenario.
-- **Google Guice** is used for the dependency injection pattern.
-- For the Unit Tests **Junit** and **Hamcrest** are used.
+ - The **Apache Commons** frameworks help in this I/O scenario.
+ - **Google Guice** is used for the dependency injection pattern.
+ - For the Unit Tests **Junit** and **Hamcrest** are used.
 
 
 Example
