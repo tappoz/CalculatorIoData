@@ -28,6 +28,7 @@ public class OperationsFileService {
 
     private LineProcessingService lineProcessingService;
     private OperationPerformingService operationPerformingService;
+    private FactoryService factoryService;
 
     @Inject
     public void setLineProcessingService(LineProcessingService lineProcessingService) {
@@ -36,6 +37,10 @@ public class OperationsFileService {
     @Inject
     public void setOperationPerformingService(OperationPerformingService operationPerformingService) {
         this.operationPerformingService = operationPerformingService;
+    }
+    @Inject
+    public void setFactoryService(FactoryService factoryService) {
+        this.factoryService = factoryService;
     }
 
     /**
@@ -46,6 +51,7 @@ public class OperationsFileService {
      * is the file system block size, to check the file system block size under Linux run:
      * <code>$ sudo blockdev --getbsz /dev/sda1</code>
      * I am assuming the block size is 1024
+     * @see {@link org.tappoz.service.FactoryService#getNewFileInstance(java.io.File, String)}
      *
      * @param filePath a string representing the relative path to the file
      *                 (e.g. from the "target" folder it might be "../src/main/resources/example1.txt")
@@ -56,8 +62,8 @@ public class OperationsFileService {
     public String getLastLine(String filePath) throws IOException, OperationIoException {
 
         try {
-            ReversedLinesFileReader reversedLinesFileReader =
-                    new ReversedLinesFileReader(new File(filePath), 1024, Charset.forName(FILE_ENCODING));
+            File theFile = factoryService.getNewFileInstance(filePath);
+            ReversedLinesFileReader reversedLinesFileReader = factoryService.getNewFileInstance(theFile, FILE_ENCODING);
             // getting the last line of the file
             String lastLineToReturn = reversedLinesFileReader.readLine();
             // closing the underlying resource
@@ -115,7 +121,8 @@ public class OperationsFileService {
         try {
             BigDecimal currentAmount = initAmount;
             // efficiently read the file line by line
-            LineIterator lineIterator = FileUtils.lineIterator(new File(filePath), FILE_ENCODING);
+            File theFile = factoryService.getNewFileInstance(filePath);
+            LineIterator lineIterator = FileUtils.lineIterator(theFile, FILE_ENCODING);
             try {
                 while (lineIterator.hasNext()) {
                     // getting the line

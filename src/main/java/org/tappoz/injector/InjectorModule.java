@@ -16,9 +16,11 @@ public class InjectorModule extends AbstractModule {
         // if there are no interfaces with multiple implementations
         // then we can just ignore the following binding statements
 
+//        bind(FactoryService.class).to(FactoryService.class);
 //        bind(LineProcessingService.class).to(LineProcessingService.class);
 //        bind(OperationPerformingService.class).to(OperationPerformingService.class);
 //        bind(OperationsFileService.class).to(OperationsFileService.class);
+//        bind(SessionProcessingService.class).to(SessionProcessingService.class);
 
         LoggingHelper.info("Just binded all the dependencies");
     }
