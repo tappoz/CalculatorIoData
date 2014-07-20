@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 /**
  * This class performs the operations according to an Operation bean and a previous provided amount.
  */
+@Singleton
 public class OperationPerformingService {
 
     /**
@@ -24,7 +25,6 @@ public class OperationPerformingService {
      * @param previousAmount
      * @return
      */
-    @Singleton
     public BigDecimal doOperation(Operation operation, BigDecimal previousAmount) {
 
         BigDecimal outputAmount = null;
