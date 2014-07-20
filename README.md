@@ -3,15 +3,16 @@ CalculatorIoData
 
 This Java project runs a list of operations e.g. `add`, `divide`, `subtract`, `multiply`
 according to a input file with instructions.
-The aim is to calculate a result from a set of instructions.
+The aim is to **calculate a result from a set of instructions**.
 The last instruction should be `apply` and a number (e.g., `apply 3`).
 The calculator is then initialised with that number and the previous instructions are applied to that number.
 
-Basically the idea here is to skill all the file and get only the last line to initialise the process.
-The I/O operations should be efficient, i.e. no loading of the whole file in memory.
+Basically the idea here is to skip all the lines in the file but the last to initialise the process.
+The I/O operations should be efficient, i.e. no loading of the whole file in memory before the computation.
 
-The **Apache Commons** frameworks help in this scenario.
-**Google Guice** is used for the dependency injection pattern.
+- The **Apache Commons** frameworks help in this I/O scenario.
+- **Google Guice** is used for the dependency injection pattern.
+- For the Unit Tests **Junit** and **Hamcrest** are used.
 
 
 Example
@@ -22,6 +23,8 @@ An input file example (containing 3 lines) might be:
     add 2
     multiply 3
     apply 3
+
+The system still works with negative numbers e.g. for the operation: `add -3`.
 
 
 Compilation
