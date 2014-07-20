@@ -12,7 +12,7 @@ The I/O operations should be efficient, i.e. no loading of the whole file in mem
 
  - The **Apache Commons** frameworks help in this I/O scenario.
  - **Google Guice** is used for the dependency injection pattern.
- - For the Unit Tests **Junit** and **Hamcrest** are used.
+ - For the Unit Tests **Junit** and **Hamcrest** are used. Also **Mockito** and **PowerMock** have been used when involving I/O operations with static methods.
 
 
 Example
