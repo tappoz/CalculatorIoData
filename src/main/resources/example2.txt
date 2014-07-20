@@ -1,2 +1,2 @@
 multiply 9
-apply 5
+apply -5

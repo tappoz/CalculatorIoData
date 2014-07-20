@@ -29,7 +29,7 @@ public class OperationPerformingServiceUnitTest {
             @Override
             protected void configure() {
                 // no mocking here, this is the sut (system under test)
-//                bind(OperationPerformingService.class);
+                bind(OperationPerformingService.class);
             }
         });
     }
